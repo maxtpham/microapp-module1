@@ -67,7 +67,6 @@
   "dependencies": {
     "@gtm/lib.client.user": "^1.0.155",
     "@gtm/lib.common": "^1.0.13",
-    "@mbb/lib.client.subscription": "^1.0.30",
     "cross-env": "^5.2.0",
     "if-env": "^1.0.4",
     "inversify": "^5.0.1",

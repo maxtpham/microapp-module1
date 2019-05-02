@@ -52,14 +52,14 @@ export default withRouter(connect<StateFromProps, DispatchFromProps, void>(
         <header className='mbb-table mbb-header'>
             {!!props.session.profile && <div className='mbb-cell mbb-brand'>
                 <div className='mbb-table'>
-                    <div className='mbb-cell mbb-logo'><NavLink to='/'><span className='mbb-text'>MyBestBook<sup>&reg;</sup></span></NavLink></div>
+                    <div className='mbb-cell mbb-logo'><NavLink to='/'><span className='mbb-text'>MicroApp<sup>&reg;</sup></span></NavLink></div>
                     <div className='mbb-cell mbb-toggle'><a className='mbb-toggler' onClick={props.toggle}><i className='big sidebar icon'></i><i className='big unordered list icon'></i><i className='remove big icon'></i></a></div>
                 </div>
             </div>}
             <div className='mbb-cell mbb-toolbar'>
                 <Menu size='huge' secondary>
                     <Menu.Item>
-                        {!props.session.profile && (<span>MyBestBook<sup>&reg;</sup>.NET Subscription</span>)}
+                        {!props.session.profile && (<span>MicroApp<sup>&reg;</sup> PoC</span>)}
 
                         {!!props.session.profile && (<Route path='/products' component={ProductHeader} />)}
                         {!!props.session.profile && (<Route path='/subscriptions' component={SubscriptionHeader} />)}
