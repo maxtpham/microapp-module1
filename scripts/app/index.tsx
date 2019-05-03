@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Master from '../../base/scripts/app/.master'
+import MasterLayout, { IMasterLayoutProps } from '../../base/scripts/app/.master/layout'
 
-export default () => (
-    <Master />
+export default (props: IMasterLayoutProps) => (
+    <MasterLayout {...props} />
 );
