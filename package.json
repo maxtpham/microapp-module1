@@ -17,7 +17,7 @@
     "b": "npm run build",
     "build:dev": "cross-env-shell NODE_ENV=development \"rm -rf bin/dev && cp -R ./base/html/dev ./bin/dev && npm run build:cmd\"",
     "build:prd": "cross-env-shell NODE_ENV=production \"rm -rf bin/prd && cp -R ./base/html/prd ./bin/prd && npm run build:cmd\"",
-    "build:cmd": "npm install && node scripts/common/version.js && webpack",
+    "build:cmd": "npm install && node base/scripts/common/version.js && webpack",
     "start": "if-env NODE_ENV=production && npm run start:prd || npm run start:dev",
     "start:dev:docker": "cross-env-shell NODE_ENV=development DEV_ENV=docker \"npm run build && webpack-dev-server --public admin.mybestbook.dev --port 80 --host 0.0.0.0 --hot --inline\"",
     "start:dev": "cross-env-shell NODE_ENV=development DEV_PORT=3001 \"webpack-dev-server --port 3001 --hot --inline --progress --colors --open-page bin/dev/\"",

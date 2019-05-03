@@ -1,6 +1,7 @@
-import "reflect-metadata";
-import { main } from "./main";
-import * as auth from './common/auth';
+import * as base from '../base/scripts';
+import * as React from 'react';
+import App from './app';
 
-// Do not use react rendering code here, this will lead the index.ts will load all the react classes (from import/requires) before this request.post code run
-auth.token().then(main).catch(e => console.error(`Load error: ${e}`));
+base.startup(() => React.createElement(App))
+    .then(() => console.log('Module loaded!'))
+    .catch(e => console.error('Module load failed', e));
