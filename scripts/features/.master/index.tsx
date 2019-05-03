@@ -7,6 +7,7 @@ import {IAppCss as appcss} from '../../../styles/app.css';
 
 import { connect } from 'react-redux';
 import { config } from '../../config';
+import * as auth from '../../common/auth';
 const styles: appcss = require('../../../styles/app.css');
 
 import { IMasterState, IMasterStateSession } from './types';
@@ -74,16 +75,15 @@ export default withRouter(connect<StateFromProps, DispatchFromProps, void>(
                         {!!props.session.profile && (<Route path='/profile' component={ProfileHeader} />)}
                     </Menu.Item>
                     <Menu.Menu position='right'>
-                        <Dropdown item trigger={!!props.session.profile ? (<span> <Image src={config.services.user + '/web/user/avatar'} avatar style={{width: 24, height: 24}} />Hi, {props.session.profile.name}</span>) : (<span><Icon size='large' name='user circle'/>Login</span>)}>
+                        <Dropdown item trigger={!!props.session.profile ? (<span> <Icon name='user'/>Hi, {props.session.profile.name}</span>) : (<span><Icon size='large' name='user circle'/>Login</span>)}>
                             {!!props.session.profile ?
                             (<Dropdown.Menu>
                                 <Dropdown.Item as={NavLink} to='/profile'><Icon name='id card outline'/>Profile</Dropdown.Item>
                                 <Divider/>
-                                <Dropdown.Item onClick={(e, d) => window.location.href = (config.services.user + '/web/auth/logout?callback=' + encodeURIComponent(config.homeUrl))}><Icon name='log out'/>Logout</Dropdown.Item>
+                                <Dropdown.Item onClick={(e, d) => auth.logout().then(loggedout => loggedout ? location.reload() : alert('Failed to logout')).catch(alert)}><Icon name='sign out'/>Logout</Dropdown.Item>
                             </Dropdown.Menu>) :
                             (<Dropdown.Menu>
-                                <Dropdown.Item onClick={(e, d) => window.location.href = (config.services.user + '/pub/auth/login/google?callback=' + encodeURIComponent(location.href))}><Icon name='google'/>Login by Google</Dropdown.Item>
-                                <Dropdown.Item onClick={(e, d) => window.location.href = (config.services.user + '/pub/auth/login/facebook?callback=' + encodeURIComponent(location.href))}><Icon name='facebook'/>Login by Facebook</Dropdown.Item>
+                                <Dropdown.Item onClick={(e, d) => auth.login().then(loggedin => loggedin ? location.reload() : alert('Failed to login')).catch(alert)}><Icon name='sign in'/>Login</Dropdown.Item>
                             </Dropdown.Menu>)}
                         </Dropdown>
                     </Menu.Menu>
