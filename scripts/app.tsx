@@ -1,5 +1,5 @@
 import * as React from 'react';
-import MasterLayout, { IMasterLayoutProps, MasterLayoutHeader, MasterLayoutContent, MasterLayoutMenu } from '../base/scripts/app/.master/layout'
+import MasterLayout, { IMasterLayoutProps, MasterLayoutHeader, MasterLayoutContent, MasterLayoutMenu } from '../base/scripts/master/layout'
 import { Menu, Icon, Popup } from 'semantic-ui-react';
 import { NavLink, Route } from 'react-router-dom';
 
