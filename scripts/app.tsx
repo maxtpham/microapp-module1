@@ -1,5 +1,5 @@
 import * as React from 'react';
-import MasterLayout, { IMasterLayoutProps, MasterLayoutHeader, MasterLayoutContent, MasterLayoutMenu } from '../base/scripts/master/layout'
+import MasterLayout, { IMasterLayoutProps, MasterLayoutHeader, MasterLayoutContent, MasterLayoutNavbar } from '../base/scripts/master/layout'
 import { Menu, Icon, Popup } from 'semantic-ui-react';
 import { NavLink, Route } from 'react-router-dom';
 
@@ -10,12 +10,12 @@ import AboutContent from "./about/content";
 
 export default (props: IMasterLayoutProps) => (
     <MasterLayout {...props}>
-        <MasterLayoutMenu>
+        <MasterLayoutNavbar>
             <Menu.Menu>
                 <Menu.Item as={NavLink} to='/document' name='document'><span className='mbb-menu-item1'><Icon name='help circle'/>Document</span><span className='mbb-menu-item2'><Popup trigger={<Icon name='help circle'/>} content='Document' position='right center' inverted/></span></Menu.Item>
                 <Menu.Item as={NavLink} to='/about' name='about'><span className='mbb-menu-item1'><Icon name='info'/>About</span><span className='mbb-menu-item2'><Popup trigger={<Icon name='info'/>} content='About' position='right center' inverted/></span></Menu.Item>
             </Menu.Menu>
-        </MasterLayoutMenu>
+        </MasterLayoutNavbar>
         <MasterLayoutHeader>
             <Route path='/document' component={DocumentHeader} />
             <Route path='/about' component={AboutHeader} />
