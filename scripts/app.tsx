@@ -12,17 +12,17 @@ export default (props: IMasterLayoutProps) => (
     <MasterLayout {...props}>
         <MasterLayoutNavbar>
             <Menu.Menu>
-                <Menu.Item as={NavLink} to='/document' name='document'><span className='mbb-menu-item1'><Icon name='help circle'/>Document</span><span className='mbb-menu-item2'><Popup trigger={<Icon name='help circle'/>} content='Document' position='right center' inverted/></span></Menu.Item>
                 <Menu.Item as={NavLink} to='/about' name='about'><span className='mbb-menu-item1'><Icon name='info'/>About</span><span className='mbb-menu-item2'><Popup trigger={<Icon name='info'/>} content='About' position='right center' inverted/></span></Menu.Item>
+                <Menu.Item as={NavLink} to='/document' name='document'><span className='mbb-menu-item1'><Icon name='help circle'/>Document</span><span className='mbb-menu-item2'><Popup trigger={<Icon name='help circle'/>} content='Document' position='right center' inverted/></span></Menu.Item>
             </Menu.Menu>
         </MasterLayoutNavbar>
         <MasterLayoutHeader>
-            <Route path='/document' component={DocumentHeader} />
             <Route path='/about' component={AboutHeader} />
+            <Route path='/document' component={DocumentHeader} />
         </MasterLayoutHeader>
         <MasterLayoutContent>
-            <Route path='/document' component={DocumentContent} />
             <Route path='/about' component={AboutContent} />
+            <Route path='/document' component={DocumentContent} />
         </MasterLayoutContent>
     </MasterLayout>
 );
